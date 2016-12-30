@@ -54,7 +54,7 @@ Y = Ye/Q
 #include <stdlib.h>
 #include <math.h>
 #include <allegro5/allegro.h>
-#include "allegro5/allegro_image.h"
+#include <allegro5/allegro_image.h>
 #include <allegro5/allegro_native_dialog.h>
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_audio.h> /* Pour jouer de la musique */
@@ -865,22 +865,7 @@ void erreur(const char*txt)
     exit(EXIT_FAILURE);
 }
 
-void al_draw_polygon(int vertices, int *points, unsigned char r, unsigned char g, unsigned char b)
-{
-    ALLEGRO_VERTEX v[vertices];
-    for (int i=0; i<vertices; i++)
-    {
-        v[i].x = points[i*2];
-        v[i].y = points[(i*2)+1];
-        v[i].z = 0;
-        v[i].u = 0;
-        v[i].v = 0;
-        v[i].color = al_map_rgb(r, g, b);
-    }
 
-    al_draw_prim(v, NULL, 0, 0, vertices, ALLEGRO_PRIM_TRIANGLE_FAN);
-
-}
 
 void DrawRoundedGradientRect( float x1, float y1, float x2, float y2,
                 ALLEGRO_COLOR c1, ALLEGRO_COLOR c2)
